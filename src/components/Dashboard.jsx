@@ -15,19 +15,19 @@ const Dashboard = () => {
   const [topMerchants, setTopMerchants] = useState([]);
   const [genderData, setGenderData] = useState([]);
   const [fraudRatioData, setFraudRatioData] = useState([]);
-
+  const NODE_API_BASE = import.meta.env.VITE_NODE_API_BASE;
   useEffect(() => {
-    axios.get("http://localhost:5000/api/summary").then((res) => setSummary(res.data));
-    axios.get("http://localhost:5000/api/fraud-by-category").then((res) => setFraudByCategory(res.data));
-    axios.get("http://localhost:5000/api/fraud-trend").then((res) => setFraudTrend(res.data));
-    fetch("http://localhost:5000/api/fraud-map").then(r => r.json()).then(setMapData);
-    fetch("http://localhost:5000/api/top-merchants").then(r => r.json()).then(setTopMerchants);
-    fetch("http://localhost:5000/api/fraud-gender-distribution")
+    axios.get(`${NODE_API_BASE}/summary`).then((res) => setSummary(res.data));
+    axios.get(`${NODE_API_BASE}/fraud-by-category`).then((res) => setFraudByCategory(res.data));
+    axios.get(`${NODE_API_BASE}/fraud-trend`).then((res) => setFraudTrend(res.data));
+    fetch(`${NODE_API_BASE}/fraud-map`).then(r => r.json()).then(setMapData);
+    fetch(`${NODE_API_BASE}/top-merchants`).then(r => r.json()).then(setTopMerchants);
+    fetch(`${NODE_API_BASE}/fraud-gender-distribution`)
       .then((res) => res.json())
       .then((data) => setGenderData(data))
       .catch(console.error);
 
-    fetch("http://localhost:5000/api/fraud-vs-nonfraud")
+    fetch(`${NODE_API_BASE}/fraud-vs-nonfraud`)
       .then((res) => res.json())
       .then((data) => setFraudRatioData(data))
       .catch(console.error);

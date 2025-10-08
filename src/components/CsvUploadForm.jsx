@@ -6,7 +6,7 @@ export default function CsvUploadForm() {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
-  const API_BASE = "http://localhost:5001"; // adjust to your backend
+  const PYTHON_API_BASE = import.meta.env.VITE_PYTHON_API_BASE; 
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -21,7 +21,7 @@ export default function CsvUploadForm() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post(`${API_BASE}/predict/csv`, formData, {
+      const res = await axios.post(`${PYTHON_API_BASE}/predict/csv`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       // Ensure result is always an array
@@ -33,18 +33,7 @@ export default function CsvUploadForm() {
     }
   };
 
-  // const handlePredictSample = async () => {
-  //   setLoading(true);
-  //   setResult([]);
-  //   try {
-  //     const res = await axios.get(`${API_BASE}/predict/sample`);
-  //     setResult(Array.isArray(res.data) ? res.data : []);
-  //   } catch (err) {
-  //     alert("Error: " + (err.response?.data?.detail || err.message));
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+ 
 
   return (
     <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto space-y-4">
@@ -57,15 +46,7 @@ export default function CsvUploadForm() {
           📄 Download Sample CSV
         </a>
 
-        {/* <button
-          onClick={handlePredictSample}
-          disabled={loading}
-          className={`${
-            loading ? "bg-gray-400 cursor-not-allowed" : "bg-yellow-600 hover:bg-yellow-700"
-          } text-white px-4 py-2 rounded-lg transition`}
-        >
-          {loading ? "Processing..." : "Predict Sample File"}
-        </button> */}
+      
       </div>
 
       <form

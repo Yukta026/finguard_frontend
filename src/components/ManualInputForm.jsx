@@ -27,7 +27,7 @@ export default function ManualInputForm() {
   merch_long: "",
 });
 
-
+  const PYTHON_API_BASE = import.meta.env.VITE_PYTHON_API_BASE;
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -78,7 +78,7 @@ export default function ManualInputForm() {
     setResult(null);
     try {
       const payload = preparePayload();
-      const res = await axios.post("http://localhost:5001/predict/manual", payload);
+      const res = await axios.post(`${PYTHON_API_BASE}/predict/manual`, payload);
       setResult(res.data);
     } catch (err) {
       alert("Error: " + err.message);
