@@ -1,0 +1,58 @@
+[
+  {
+    "category": "grocery_pos",
+    "count": 1743
+  },
+  {
+    "category": "shopping_net",
+    "count": 1713
+  },
+  {
+    "category": "misc_net",
+    "count": 915
+  },
+  {
+    "category": "shopping_pos",
+    "count": 843
+  },
+  {
+    "category": "gas_transport",
+    "count": 618
+  },
+  {
+    "category": "misc_pos",
+    "count": 250
+  },
+  {
+    "category": "kids_pets",
+    "count": 239
+  },
+  {
+    "category": "entertainment",
+    "count": 233
+  },
+  {
+    "category": "personal_care",
+    "count": 220
+  },
+  {
+    "category": "home",
+    "count": 198
+  },
+  {
+    "category": "food_dining",
+    "count": 151
+  },
+  {
+    "category": "grocery_net",
+    "count": 134
+  },
+  {
+    "category": "health_fitness",
+    "count": 133
+  },
+  {
+    "category": "travel",
+    "count": 116
+  }
+]

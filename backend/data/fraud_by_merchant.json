@@ -1,0 +1,42 @@
+[
+	{
+		"merchant" : "fraud_Rau and Sons",
+		"fraud_count" : 49
+	},
+	{
+		"merchant" : "fraud_Kozey-Boehm",
+		"fraud_count" : 48
+	},
+	{
+		"merchant" : "fraud_Cormier LLC",
+		"fraud_count" : 48
+	},
+	{
+		"merchant" : "fraud_Doyle Ltd",
+		"fraud_count" : 47
+	},
+	{
+		"merchant" : "fraud_Kilback LLC",
+		"fraud_count" : 47
+	},
+	{
+		"merchant" : "fraud_Vandervort-Funk",
+		"fraud_count" : 47
+	},
+	{
+		"merchant" : "fraud_Kuhn LLC",
+		"fraud_count" : 44
+	},
+	{
+		"merchant" : "fraud_Padberg-Welch",
+		"fraud_count" : 44
+	},
+	{
+		"merchant" : "fraud_Terry-Huel",
+		"fraud_count" : 43
+	},
+	{
+		"merchant" : "fraud_Goyette Inc",
+		"fraud_count" : 42
+	}
+]

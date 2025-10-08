@@ -1,0 +1,10 @@
+[
+	{
+		"label" : "Non-Fraud",
+		"count" : 1289169
+	},
+	{
+		"label" : "Fraud",
+		"count" : 7506
+	}
+]
