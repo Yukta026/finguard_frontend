@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import axios from "axios";
 import FraudResult from "./FraudResult";
-
+import { v4 as uuidv4 } from "uuid";
 export default function CsvUploadForm() {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const PYTHON_API_BASE = import.meta.env.VITE_PYTHON_API_BASE; 
-
+  
+  useEffect(() => {
+    const dataWithIds = FraudResult.map(row => ({ ...row, id: uuidv4() }));
+    setResult(dataWithIds);
+     }, []); 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -15,6 +19,7 @@ export default function CsvUploadForm() {
   const handleUpload = async (e) => {
     e.preventDefault();
     if (!file) return alert("Please select a CSV file.");
+    
 
     setLoading(true);
     setResult([]);
@@ -32,6 +37,7 @@ export default function CsvUploadForm() {
       setLoading(false);
     }
   };
+  
 
  
 
@@ -87,8 +93,8 @@ export default function CsvUploadForm() {
           </p>
 
           <div className="mt-4 max-h-60 overflow-y-auto">
-            {result.slice(0, 10).map((row, idx) => (
-              <div key={idx} className="border-b py-3">
+            {result.slice(0, 10).map(row => ( 
+              <div key={row.id} className="border-b py-3">
                 <p className="text-sm font-medium text-gray-700">
                   Merchant: <span className="text-gray-800">{row.merchant}</span>
                 </p>
