@@ -47,5 +47,6 @@ export default function FraudResult({ probability }) {
   
 }
 FraudResult.propTypes = {
-    probability: PropTypes.float.isRequired,
+    probability: PropTypes.number.isRequired
+,
   };
